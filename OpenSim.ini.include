@@ -1,0 +1,75 @@
+[Startup]
+    ; Money module
+    economymodule = MoneyAdapterModule
+
+[Economy]
+    ;; Money Unit fee to upload textures, animations etc
+    ;PriceUpload = 0
+
+    ;; Money Unit fee to create groups
+    ;PriceGroupCreate = 0
+
+[Money Adapter]
+    ;; Set this value to true to enable money module
+    Enabled = true
+
+    ;; External address and port number of your OpenSim server
+    ;; Format: <IP address>|<domain name>:<port number>
+    ServerURI = 127.0.0.1:9000
+
+    ;; Money server URI (http or https) and password
+    MoneyServerURI = https://127.0.0.1/money/
+    MoneyServerPassword = password
+
+    ;; Set this value to the UUID of central bank avatar
+    BankAccount = 00000000-0000-0000-0000-000000000000
+
+    ;; Set this value to true to enable payments to groups
+    ;GroupsEnabled = false
+
+    ;; Timeout in seconds; default: 10 seconds
+    ;Timeout = 10
+
+    ;; Ignore SSL certificate errors
+    ;IgnoreSSLErrors = false
+
+    ; PayPal money exchange; enabled or disabled
+    PayPalEnabled = false
+    
+    ; PayPal IPN URL
+    ; can be either www.paypal.com or www.sandbox.paypal.com
+    PayPalURL = www.paypal.com
+
+    ; Email address of PayPal recipient
+    PayPalRecipient = me@foo.com
+
+    ; PayPal currency code
+    PayPalCurrency = USD
+
+    ; PayPal exchange rate
+    PayPalExchangeRate = 0.01
+
+    ; Money exchange percentage fee
+    PayPalPercentageFee = 0.039
+
+    ; Money exchange transaction fee
+    PayPalTransactionFee = 0.30
+
+    ; Minimum amount for exchanges to grid currency
+    MinAmount = 2000
+
+    ; Grid currency code
+    Currency = "OS$"
+
+    ; PayPal transaction timeout in minutes
+    ;PayPalTransactionsTimeout = 60
+
+    ; Send money balance on entry
+    ;BalanceOnEntry = false
+
+    ; Send message on entry
+    ;MessageOnEntry = "Money System:  OS$ 100 = US$ 1.00"
+
+    ; List of license keys
+    ; Obtain a license at http://www.dreamlandmetaverse.com/
+    Licenses = 

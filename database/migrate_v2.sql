@@ -1,0 +1,1 @@
+ALTER TABLE `money`.`Regions` DROP PRIMARY KEY;

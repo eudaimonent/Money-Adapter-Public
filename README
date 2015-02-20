@@ -1,0 +1,90 @@
+OpenSim Money Adapter Module
+============================
+
+
+Compiling the Module
+--------------------
+
+Copy the MoneyAdapter directory into the OpenSim addon-modules folder and compile
+OpenSim as usual.
+
+
+Runtime Module Installation
+---------------------------
+
+If you just want to install the runtime module without having to compile it yourself,
+simply copy the MoneyAdapter/Modules/bin/Debug/MoneyAdapter.dll file into the OpenSim
+bin folder.
+
+
+Configuration File
+------------------
+
+Copy the [Money Adapter] section of the OpenSim.ini.include file into your
+bin/OpenSim.ini file and modify the other sections as shown. Adjust the settings
+to your needs. Especially adjust all URIs, passwords and user UUIDs.
+
+
+Database Setup
+--------------
+
+Create the new MySQL database for the money server and then initialize the database
+by executing this command:
+  mysql -u<name> -p<password> <database> < database/money_v2.sql
+
+
+Web Site Setup
+--------------
+
+Copy the "money" directory in the webroot folder into your root HTTP or HTTP-S
+folder of your web server. After that set the ownership and permissions of all
+files correctly and adjust the settings in the config.php file. 
+
+Be sure that you have installed PHP and configured MySQL such that it can execute
+PHP scripts installed in that web folder.
+
+
+Currency Symbol
+---------------
+
+If you want to be able to change the currency symbol, you have to apply the
+Currency.patch to your OpenSim source code:
+  - go to your OpenSim source folder
+  - copy the Currency.patch file into that folder
+  - execute "patch -p1 < Currency.patch"
+
+After that specify the currency symbol (up to 3 characters) as "Currency"
+setting in the [LoginService] section of the StandaloneCommons.ini or
+Robust.ini files.
+
+
+License Agreement
+-----------------
+
+Copyright (c) by Dreamland Metaverse, http://www.dreamlandmetaverse.com/
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of Dreamland Metaverse nor the
+      names of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+    * Commercial use and redistribution in source and binary form are
+      prohibited, with or without modifications, including derived products.
+      (Commercial licenses are available from Dreamland Metaverse.)
+
+THIS SOFTWARE IS PROVIDED BY THE DEVELOPERS ``AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE CONTRIBUTORS BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+

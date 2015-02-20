@@ -1,0 +1,42 @@
+OpenSim Money Adapter Module
+ Update for Latest Version
+============================
+
+The following update procedure is required to update your money server installation for the latest
+version of the Money Adapter module. You need to update the database and do a little modification
+of the Leave.php web server PHP script, which based on our example money server.
+
+
+Migrate Database
+----------------
+
+- Execute this command:
+
+  mysql -u<name> -p<password> <database> < database/migrate_v2.sql
+
+
+Modify Leave.php
+----------------
+
+- Open the Leave.php web server PHP script of your money server and change the following line:
+
+$sql = "DELETE FROM Regions WHERE UserID=\"" . $agentID . "\"";
+  to this new contents:
+$sql = "DELETE FROM Regions WHERE UserID=\"" . $agentID . "\" AND ServerURI=\"" . $uri . "\" LIMIT 1";
+
+
+Modify MoneyTransfer.php
+------------------------
+
+- Open the MoneyTransfer.php web server PHP script of your money server and add the following lines
+  before the section that sends change notifications:
+
+// sender and receiver the same?
+
+if ($fromID == $toID) {
+    // do not send change notifications
+    die('Sender and receiver are the same.');
+}
+
+
+After these changes, your money server will be compatible with the latest version of the Money Adapter.
